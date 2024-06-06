@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h2> Войти в систему </h2>
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="Войти">
+</form>
+
+<button> <a href="https://passport.yandex.ru/auth?retpath=%2F%2Fyandex.ru%2Fsupport%2Fid%2Fauth.html%3Fysclid%3Dlwkp4b4fvf878917306.html"> войти через яндекс </a></button>
+<button> <a href="/accounts/signup"> Регистрация </a></button>
+{% endblock %}
